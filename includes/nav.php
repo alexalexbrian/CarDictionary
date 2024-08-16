@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-primary">
     <div class="container">
-      <a class="navbar-brand" href="index_es.php">
+      <a class="navbar-brand" href="index.php?id=1">
       <!-- <a class="navbar-brand" href="./?limpiar=1"> -->
         <!-- <i class="fa fa-book"></i> <span>Diccionario</span> veterinario -->
         <i class="fa fa-book"></i> <span>Diccionario</span>
@@ -35,7 +35,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a href="logout.php" class="nav-link">Salir <i class="fa fa-sign-out"></i></a>
+          <a href="index.php?id=20" class="nav-link">Salir <i class="fa fa-sign-out"></i></a>
         </li>
       </ul>
     </div><!-- /.container -->

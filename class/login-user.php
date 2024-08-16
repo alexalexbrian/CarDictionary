@@ -30,9 +30,10 @@ class Login extends Connection {
                     echo 'La contraseña no es válida.';
                 }
                 */
-
+           
                 if ($user && password_verify($password, $user['password'])) {
                     // Inicio de sesión exitoso
+                    session_start();
                     $_SESSION['id'] = $user['id'];
                     $_SESSION['username'] = $user['username'];
                     header('Location: index.php?id=3'); // Redirigir a una página de inicio

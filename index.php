@@ -24,6 +24,9 @@ switch ($id) {
     case 3:
         require_once("includes/templates/dashboard.php");
         break;
+    case 20:
+        require_once("includes/templates/logout.php");
+        break;
 }
 ?>
 

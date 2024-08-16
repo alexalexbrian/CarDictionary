@@ -12,12 +12,14 @@ class Connection{
 
 public function __construct()
 {   
-
     $this->user="root";
 	$this->pass="";
     $this->server="localhost";
     $this->bdname="diccionario_veterinario2";
-    
+	$this->fecha = date("d-m-Y");
+	$this->hora = date("H:m:s");
+    $this->datos = array();
+
     try {
     //Establecer la conexión a la base de datos
 	$this->dbh=new PDO('mysql:host='.$this->server.';dbname='.$this->bdname.'',$this->user,$this->pass,
@@ -27,14 +29,12 @@ public function __construct()
         print "Error!: " . $e->getMessage();
         die();
 }
-  // Inicializar variables
-    $this->datos = array();
-	$this->fecha = date("d-m-Y");   //fecha lo usamos para guardar fecha y hora en la base de datos
-	$this->hora = date("H:m:s");    //Hora  lo usamos para guardar fecha y hora en la base de datos
+
+
     
 }
 
-public function Select_datos($sql){
+public function Select_all_1($sql){
 
 	$smtp=$this->dbh->prepare($sql);
 	$smtp->execute();
@@ -49,4 +49,19 @@ public function Select_datos($sql){
 		return $this->datos;
 		
 	}
+
+    
+public function Select_all_2(){
+
+        $sql="SELECT * FROM `terminos_en` WHERE 1";
+        $query = $this->dbh->prepare($sql);
+        $query->execute();
+        //Obtener todos los resultados
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+
+
+    }
+
+
 }

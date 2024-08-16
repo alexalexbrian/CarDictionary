@@ -1,3 +1,21 @@
+<?php
+require_once("class/dashboard-user.php");
+define('myconstante', 'true');
+$select = new Dashboard();
+$offset = 0 ;
+$limit = 10;
+$empieza_por = !empty($_POST["empieza_por"]) ? $_POST["empieza_por"] : "";
+$estado = !empty($_POST["estado"]) ? $_POST["estado"] : "";
+$palabra = !empty($_POST["palabra"]) ? $_POST["palabra"] : "";
+$offset = !empty($_GET["offset"]) && $_GET["offset"] !== "undefined" ? (int)$_GET["offset"] : $offset;
+$limit = !empty($_GET["limit"]) && $_GET["limit"] !== "undefined" ? (int)$_GET["limit"] : $limit;
+
+$users = $select->Get_posts_es($offset, $limit, $empieza_por, $estado, $palabra);
+
+
+//Verificar si la sesión está iniciada
+if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+?>
 <div class="collapse" id="exCollapsingNavbar" style="padding: 0px">
     <!-- nuevo -->
     <div class="container-fluid">
@@ -41,7 +59,7 @@
 
       <!-- Buscador por filtros -->
       <p class="termino-principal-tit termino-tit initialism">Buscador</p>
-      <form class="" action="" name="busqueda" id="busqueda" method="post">
+      <form class="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?id=<?php echo $id;?>" name="busqueda" id="busqueda" method="POST">
 
         <input type="hidden" id='reseteo' name='reseteo' value='si'><!-- insertamos variable oculta para la busqueda por filtros -->
 
@@ -157,150 +175,68 @@
             </tr>
           </thead>
           <tbody class="bg-white">
-                            <tr>
+            <?php
+           
+            if(is_array($users) && !empty($users))
+            {
+              for($li=0;$li<sizeof($users);$li++){
+              ?>
+                <tr>
                   <td>
-                    -aceae                  </td>
+                    <?php echo $users[$li]['nom_es'] ?>
+                  </td>
                   <td class="text-center">
-                    Editado                  </td>
+                    <?php echo $users[$li]['nom_es'] ?>
+                  </td>
                   <td class="text-center">
 
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=1" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=1&num=1" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=1&num=1&empieza_por=&estado=&palabra=" role="button">Ver término</a>
+                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=<?php  echo $users[$li]['id']; ?>" role="button">Ver término</a> -->
+                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=<?php  echo $users[$li]['id']; ?>&num=<?php echo $users[$li]['rownum'] ?>" role="button">Ver término</a> -->
+                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=<?php  echo $users[$li]['id']; ?>&num=<?php echo $users[$li]['rownum'] ?>&empieza_por=<?php echo $empieza_por ?>&estado=<?php echo $estado ?>&palabra=<?php echo $palabra ?>" role="button">Ver término</a>
 
                   </td>
                 </tr>
-                              <tr>
-                  <td>
-                    -ad                  </td>
-                  <td class="text-center">
-                    Editado                  </td>
-                  <td class="text-center">
-
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=593" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=593&num=2" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=593&num=2&empieza_por=&estado=&palabra=" role="button">Ver término</a>
-
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    -aemia                  </td>
-                  <td class="text-center">
-                    Editado                  </td>
-                  <td class="text-center">
-
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=2" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=2&num=3" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=2&num=3&empieza_por=&estado=&palabra=" role="button">Ver término</a>
-
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    -aesthesia                  </td>
-                  <td class="text-center">
-                    Editado                  </td>
-                  <td class="text-center">
-
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=3" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=3&num=4" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=3&num=4&empieza_por=&estado=&palabra=" role="button">Ver término</a>
-
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    -agog                  </td>
-                  <td class="text-center">
-                    Editado                  </td>
-                  <td class="text-center">
-
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=4" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=4&num=5" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=4&num=5&empieza_por=&estado=&palabra=" role="button">Ver término</a>
-
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    -ales                  </td>
-                  <td class="text-center">
-                    Editado                  </td>
-                  <td class="text-center">
-
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=5" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=5&num=6" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=5&num=6&empieza_por=&estado=&palabra=" role="button">Ver término</a>
-
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    -algesia                  </td>
-                  <td class="text-center">
-                    Alerta                  </td>
-                  <td class="text-center">
-
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=52341" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=52341&num=7" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=52341&num=7&empieza_por=&estado=&palabra=" role="button">Ver término</a>
-
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    -algia                  </td>
-                  <td class="text-center">
-                    Editado                  </td>
-                  <td class="text-center">
-
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=30679" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=30679&num=8" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=30679&num=8&empieza_por=&estado=&palabra=" role="button">Ver término</a>
-
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    -asthenia                  </td>
-                  <td class="text-center">
-                    Editado                  </td>
-                  <td class="text-center">
-
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=7" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=7&num=9" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=7&num=9&empieza_por=&estado=&palabra=" role="button">Ver término</a>
-
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    -borne                  </td>
-                  <td class="text-center">
-                    Editado                  </td>
-                  <td class="text-center">
-
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=4310" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=4310&num=10" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=4310&num=10&empieza_por=&estado=&palabra=" role="button">Ver término</a>
-
-                  </td>
-                </tr>
-                        </tbody>
+              <?php
+              }
+            }
+            else
+            {
+            ?>
+              <div class="alert alert-danger text-center">Aquí no hay término para mostrar</div>
+            <?php
+            }
+            ?>
+          </tbody>
         </table>
       <!-- </div> -->
       <!-- /tabla de paginación -->
 
+
+
+      
       <!-- Botones de paginación -->
-            <div class="row">
+      <?php
+      if(is_array($users) && !empty($users))
+      {
+      ?>
+      <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
-          <!-- <ul class="pagination pagination-sm"><li class='disabled'><a href='?offset=0&limit=10'><i class='icon-skip-back'></i></a></li><li class='disabled'><a href='?offset=0&limit=10'><i class='icon-arrow-left'></i></a></li><li class='active'><a href='#'>1</a></li><li><a href="?offset=10&limit=10">2</a></li><li><a href="?offset=20&limit=10">3</a></li><li><a href="?offset=30&limit=10">4</a></li><li><a href="?offset=40&limit=10">5</a></li><li><a href='?offset=10&limit=10'><i class='icon-arrow-right'></i></a></li><li><a href='?offset=48340&limit=10'><i class='icon-skip-forward'></i></a></li></ul> -->
-          <ul class="pagination pagination-sm"><li class='disabled'><a href='?offset=0&limit=10'><i class='icon-skip-back'></i></a></li><li class='disabled'><a href='?offset=0&limit=10'><i class='icon-arrow-left'></i></a></li><li class='active'><a href='#'>1</a></li><li><a href="?offset=10&limit=10">2</a></li><li><a href="?offset=20&limit=10">3</a></li><li><a href="?offset=30&limit=10">4</a></li><li><a href="?offset=40&limit=10">5</a></li><li><a href='?offset=10&limit=10'><i class='icon-arrow-right'></i></a></li><li><a href='?offset=48340&limit=10'><i class='icon-skip-forward'></i></a></li></ul>        </div><!-- col -->
+          <?php echo $select->Create_Link($empieza_por, $estado,$palabra) ?>
+        </div><!-- col -->
       </div><!-- row -->
-            <!-- /Botones de paginación -->
+      <?php
+      }
+      ?>
+      <!-- /Botones de paginación -->
 
-    </div><!-- /.col -->
 
-  </div><!-- /row -->
-</div><!-- /.container -->
+
+    </div>
+  </div>
+</div>
+<?php
+} else {
+  // La sesión no está iniciada o no contiene los datos esperados
+  echo '<div class="alert alert-danger">No se ha iniciado sesión.</div>';
+}
+?>
