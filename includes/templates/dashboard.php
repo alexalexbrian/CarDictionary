@@ -189,11 +189,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
                     <?php echo $users[$li]['nom_es'] ?>
                   </td>
                   <td class="text-center">
-
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=<?php  echo $users[$li]['id']; ?>" role="button">Ver término</a> -->
-                    <!-- <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=<?php  echo $users[$li]['id']; ?>&num=<?php echo $users[$li]['rownum'] ?>" role="button">Ver término</a> -->
-                    <a class="btn btn-sm btn-primary btn-termino" href="edit.php?id=<?php  echo $users[$li]['id']; ?>&num=<?php echo $users[$li]['rownum'] ?>&empieza_por=<?php echo $empieza_por ?>&estado=<?php echo $estado ?>&palabra=<?php echo $palabra ?>" role="button">Ver término</a>
-
+                  <a class="btn btn-sm btn-primary btn-termino" href="index.php?id=4&record=<?php  echo $users[$li]['id']; ?>&num=<?php echo $users[$li]['rownum'] ?>&empieza_por=<?php echo $empieza_por ?>&estado=<?php echo $estado ?>&palabra=<?php echo $palabra ?>" role="button">Ver término</a>
                   </td>
                 </tr>
               <?php
