@@ -8,7 +8,7 @@
               <li class="media" id="vista2_termino">
                 <div class="media-body" style="border-right: 1px solid #edeef3; padding-right: 15px">
                   <p>
-                    <span class="termino-principal-tit"><?php echo $termino["nom_es"]; ?></span> <?php echo $termino["des_es"]; ?>
+                    <span class="termino-principal-tit"><?php echo $dat[0]["nom_es"]; ?></span> <?php echo $dat[0]["des_es"]; ?>
                   </p>
 
                   <!-- <div class="row b-t-md"> -->
@@ -22,7 +22,7 @@
                         </div>
                         <!-- <div class="media-body" style="font-size: 0.8em; color: #c5c4ca; font-weight: 400; padding-top: 2px"> -->
                         <div class="media-body" style="font-size: 0.8em; color: #c5c4ca; font-weight: 400; padding-top: 4px">
-                          <?php echo $termino["not_es"]; ?>
+                          <?php echo $dat[0]["not_es"]; ?>
                         </div>
                       </div><!-- /.media -->
                       <!-- /Notas -->
@@ -31,10 +31,10 @@
                     <!-- <div class="col-md-2" style="font-size: 0.7em; color: #c5c4ca; font-weight: 400; padding-top: 2px"> -->
                     <div class="col-md-2" style="font-size: 0.85em; color: #c5c4ca; font-weight: 400; padding-top: 2px">
                       <div class="pull-right">
-                        <!-- <span class="label label-default" style="background-color: #ededf5; color: #928daa; font-weight: 500; font-size: 0.8em"><?php echo $termino["est_es"]; ?></span> -->
+                        <!-- <span class="label label-default" style="background-color: #ededf5; color: #928daa; font-weight: 500; font-size: 0.8em"><?php echo $dat[0]["est_es"]; ?></span> -->
                         <?php
                           $estado = '';
-                          $estado = $termino["est_es"];
+                          $estado = $dat[0]["est_es"];
                           // echo ($estado);
                           if ($estado == 'Editado' ) echo '<span class="label label-default label-termino-principal label-termino-principal-editado">Editado</span>';
 
@@ -68,21 +68,21 @@
 
                   <div class="form-group">
                     <label for="nombre_termino" class="termino-principal-tit termino-tit initialism">Nombre término</label>
-                    <input type="text" class="form-control form-control-sm" id="nombre_termino_principal" name="nombre_termino_principal" value="<?php echo $termino["nom_es"]; ?>">
+                    <input type="text" class="form-control form-control-sm" id="nombre_termino_principal" name="nombre_termino_principal" value="<?php echo $dat[0]["nom_es"]; ?>">
                   </div>
                   <div class="form-group">
                     <label for="descripcion_termino" class="termino-principal-tit termino-tit initialism">Descripción término</label>
-                    <textarea class="form-control form-control-sm" rows="3" id="summernote_des_ppal" name="descripcion_termino_principal"><?php echo $termino["des_es"]; ?></textarea>
+                    <textarea class="form-control form-control-sm" rows="3" id="summernote_des_ppal" name="descripcion_termino_principal"><?php echo $dat[0]["des_es"]; ?></textarea>
                   </div>
                   <div class="form-group">
                     <label for="descripcion_termino" class="termino-principal-tit termino-tit initialism">Notas</label>
-                    <textarea class="form-control form-control-sm" rows="2" id="summernote_not_ppal" name="notas_termino_principal"><?php echo $termino["not_es"]; ?></textarea>
+                    <textarea class="form-control form-control-sm" rows="2" id="summernote_not_ppal" name="notas_termino_principal"><?php echo $dat[0]["not_es"]; ?></textarea>
                   </div>
                   <div class="form-group">
                     <label for="descripcion_termino" class="termino-principal-tit termino-tit initialism">Estado </label>
                     <?php
                       $estado = '';
-                      $estado = $termino["est_es"];
+                      $estado = $dat[0]["est_es"];
                     ?>
                     <select class="form-control form-control-sm" id="estado" name="estado_termino_principal">
                       <option <?php if ($estado == 'Editado' ) echo 'selected' ; ?> value="Editado">Editado</option>
@@ -101,8 +101,8 @@
                 <div class="media-right" style="padding: 0px; min-width: 103px!important">
                   <div class="btn-group" role="group" aria-label="Basic example">
                     <a role="button" type="submit" href="javascript:actualizarTerminoCompletoEn('edicion');" class="btn btn-term btn-success-principal"><i class="icon-check"></i></a>
-                    <!-- <a href="javascript:changeVistaTermino()" class="btn btn-term btn-eliminar-principal" onclick="restablecerCamposPrincipalEn('<?php echo $termino["nom_es"]; ?>', '<?php echo $termino["des_es"]; ?>', '<?php echo $termino["not_es"]; ?>');"><i class="icon-cross"></i></a> -->
-                    <a href="javascript:changeVistaTermino()" class="btn btn-term btn-eliminar-principal" onclick="restablecerCamposPrincipalEn('<?php echo $termino["nom_es"]; ?>', '<?php str_replace("\"","\\\"",$termino["des_es"]) ?>', '<?php echo $termino["not_es"]; ?>');"><i class="icon-cross"></i></a>
+                    <!-- <a href="javascript:changeVistaTermino()" class="btn btn-term btn-eliminar-principal" onclick="restablecerCamposPrincipalEn('<?php echo $dat[0]["nom_es"]; ?>', '<?php echo $dat[0]["des_es"]; ?>', '<?php echo $dat[0]["not_es"]; ?>');"><i class="icon-cross"></i></a> -->
+                    <a href="javascript:changeVistaTermino()" class="btn btn-term btn-eliminar-principal" onclick="restablecerCamposPrincipalEn('<?php echo $dat[0]["nom_es"]; ?>', '<?php str_replace("\"","\\\"",$dat[0]["des_es"]) ?>', '<?php echo $dat[0]["not_es"]; ?>');"><i class="icon-cross"></i></a>
                   </div>
                 </div>
               </li><!-- /.media -->

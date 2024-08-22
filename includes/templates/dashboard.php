@@ -1,5 +1,6 @@
 <?php
 require_once("class/dashboard-user.php");
+
 define('myconstante', 'true');
 $select = new Dashboard();
 $offset = 0 ;
@@ -9,12 +10,14 @@ $estado = !empty($_POST["estado"]) ? $_POST["estado"] : "";
 $palabra = !empty($_POST["palabra"]) ? $_POST["palabra"] : "";
 $offset = !empty($_GET["offset"]) && $_GET["offset"] !== "undefined" ? (int)$_GET["offset"] : $offset;
 $limit = !empty($_GET["limit"]) && $_GET["limit"] !== "undefined" ? (int)$_GET["limit"] : $limit;
-
 $users = $select->Get_posts_es($offset, $limit, $empieza_por, $estado, $palabra);
 
 
-//Verificar si la sesión está iniciada
-if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+
+
+
+
+
 ?>
 <div class="collapse" id="exCollapsingNavbar" style="padding: 0px">
     <!-- nuevo -->
@@ -231,8 +234,4 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
   </div>
 </div>
 <?php
-} else {
-  // La sesión no está iniciada o no contiene los datos esperados
-  echo '<div class="alert alert-danger">No se ha iniciado sesión.</div>';
-}
 ?>

@@ -41,8 +41,8 @@
   <link href="assets/lib/summernote/summernote.css" rel="stylesheet">
   <!-- <script src="assets/lib/summernote/summernote.min.js"></script> -->
   <script src="assets/lib/summernote/summernote.min.js"></script>
-
   <!-- sweetalert2 -->
   <script src="assets/lib/sweetalert2/dist/sweetalert2.min.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/lib/sweetalert2/dist/sweetalert2.css">
+  </script>
 </head>

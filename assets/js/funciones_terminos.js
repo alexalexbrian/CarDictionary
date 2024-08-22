@@ -230,9 +230,13 @@ function actualizarTerminoCompletoEn(id_formulario) {
   // buscamos el formuario por id
   var formulario = document.getElementById(id_formulario);
 
+
+  
+
   document.getElementById("accion").value = "updateTerminoCompletoEn";
   // document.getElementById("update_nom_en").value = nom_en;
   // document.getElementById("update_des_en").value = des_en;
+
 
   formulario.submit();
 //   swal({

@@ -1,7 +1,5 @@
 <?php
 require_once("connection.php");
-session_start();
-
 class Dashboard extends Connection{
 
 
@@ -870,13 +868,18 @@ public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $pa
     }
   }
 
-  // 7. Actualizar todo el termino completo (nombre, descripcion, nota y estado)
-  public function updateTerminoEnCompleto($id, $nom_en, $des_en, $not_en, $est_en)
-  {
+  // 7. Actualizar todo el termino completo (nombre, descripcion, nota y estado) ok 22-08-2024
+  public function updateTerminoEnCompleto($id, $nom_en, $des_en, $not_en, $est_en){
     try {
-
       $sql = "update terminos_es set nom_es = ?, des_es = ?, not_es = ?, est_es = ? where id = ?";
       $query = $this->dbh->prepare($sql);
+      /*
+      echo $sql_debug = str_replace(['?', '?', '?', '?', '?'], 
+        [$this->dbh->quote($nom_en), $this->dbh->quote($des_en), $this->dbh->quote($not_en), $this->dbh->quote($est_en), (int)$id], 
+        $sql
+      );
+      echo "<br><br>Consulta SQL: " . $sql_debug . "<br>";
+      */
       $query->bindValue(1, $nom_en);
       $query->bindValue(2, $des_en);
       $query->bindValue(3, $not_en);
@@ -958,7 +961,7 @@ public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $pa
     }
   }
 
-  // 11. Funcion rownum para siguiente dentro de un termino
+  // 11. Función rownum para siguiente dentro de un termino
   public function get_rownnum($empieza_por, $estado, $palabra, $rownum)
   {
       try

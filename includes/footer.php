@@ -1,18 +1,4 @@
 <footer class="footer">
-   
-
-<!-- <div class="container text-center">
-
-      <br class="clear">
-      <br class="clear">
-      <nav class="navbar navbar-fixed-bottom navbar-light">
-        <div class="container" style="padding-left: 18px; padding-right: 18px">
-          <a href="" class="btn btn-sm btn-footer pull-left"><i class="icon-arrow-left"></i> <small> Término siguiente</small></a>
-          <a href="" class="btn btn-sm btn-footer pull-right"><small>Término anterior</small> <i class="icon-arrow-right"></i></a>
-        </div>
-      </nav>
-
-    </div> -->
     <nav class="navbar navbar-fixed-bottom navbar-light">
       <!-- <a class="navbar-brand" href="#">Fixed bottom</a> -->
       <div class="btn-group" role="group" aria-label="Basic example">
@@ -20,7 +6,6 @@
         <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-term btn-edit-principal"><i class="fa fa-question-circle"></i></a>
       </div>
     </nav>
-
     <!-- Modal -->
     <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

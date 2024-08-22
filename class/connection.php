@@ -50,7 +50,6 @@ public function Select_all_1($sql){
 		
 	}
 
-    
 public function Select_all_2(){
 
         $sql="SELECT * FROM `terminos_en` WHERE 1";
@@ -62,6 +61,4 @@ public function Select_all_2(){
 
 
     }
-
-
 }

@@ -45,7 +45,7 @@
                   }
                 }
                 else {
-                  echo ("<div class='alert-indigo-light'>No existen relaciones vid para el término <strong>".$termino["nom_es"]."</strong></div>");
+                  echo ("<div class='alert-indigo-light'>No existen relaciones vid para el término <strong>".$dat[0]["nom_es"]."</strong></div>");
                 }
                 ?>
 
@@ -100,7 +100,7 @@
                   }
                 }
                 else {
-                  echo ("<div class='alert-indigo-light'>No existen relaciones en inglés para el término <strong>".$termino["nom_es"]."</strong></div>");
+                  echo ("<div class='alert-indigo-light'>No existen relaciones en inglés para el término <strong>".$dat[0]["nom_es"]."</strong></div>");
                 }
                 ?>
 
@@ -137,6 +137,7 @@
                   </div> -->
                   <?php
                   $terminosRelacionadosEnEs = $a->getTerminosRelacionadosEnEs($id);
+                  echo $id;
                   if(is_array($terminosRelacionadosEnEs) && !empty($terminosRelacionadosEnEs))
                   {
                     foreach($terminosRelacionadosEnEs as $terminoRelacionEnEs)
@@ -160,7 +161,7 @@
                     }
                   }
                   else {
-                    echo ("<div class='alert-indigo-light'>No existen relaciones en inglés para el término <strong>".$termino["nom_es"]."</strong></div>");
+                    echo ("<div class='alert-indigo-light'>No existen relaciones en inglés para el término <strong>".$dat[0]["nom_es"]."</strong></div>");
                   }
                   ?>
                 </li><!-- /.media -->

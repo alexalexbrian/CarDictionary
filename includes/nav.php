@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-primary">
     <div class="container">
-      <a class="navbar-brand" href="index.php?id=1">
+      <a class="navbar-brand" href="index.php?id=3">
       <!-- <a class="navbar-brand" href="./?limpiar=1"> -->
         <!-- <i class="fa fa-book"></i> <span>Diccionario</span> veterinario -->
         <i class="fa fa-book"></i> <span>Diccionario</span>
