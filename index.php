@@ -1,6 +1,16 @@
 
 <?php
 session_start();
+//redirija a index.php?id=1 cuando no se proporcione el parámetro id pero solo afecte a index.php
+if(basename($_SERVER['PHP_SELF']) == 'index.php' && !isset($_GET['id'])){
+
+    header('Location:index.php?id=1');
+
+}else{
+    // Validar y sanitizar el parámetro id
+    $id = isset($_GET['id']) ? intval($_GET['id']) : 1; 
+    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +18,6 @@ session_start();
 <body>
 <?php require_once("includes/nav.php"); ?>
 <?php
-$id = strip_tags($_GET['id']);
 if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 switch ($id) {
     case 3:
