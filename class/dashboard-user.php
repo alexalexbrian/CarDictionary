@@ -1,19 +1,20 @@
 <?php
 require_once("connection.php");
 class Dashboard extends Connection{
-
+    
+    public int $id;
 
     public function __construct(){
 
         parent::__construct();
+
+        $this->id = isset($_GET["record"]) && is_numeric($_GET["record"]) ? (int)$_GET["record"] : 0;
 
     }
 
     public function Get_all_posts($empieza_por, $estado, $palabra)
     {
          try {
-
-          //  print "HOLAL";
 
             $sql = "SELECT COUNT(*) from terminos_es";
 
@@ -86,9 +87,6 @@ class Dashboard extends Connection{
 
         }
     }
-
-
-
 
     // public function crea_links()
     public function Create_Link($empieza_por, $estado, $palabra)
@@ -185,8 +183,6 @@ class Dashboard extends Connection{
         $html .= '</ul>';
         return $html;
     }
-
-
 
     //Palabras en español
     public function Get_posts_es($offset = 0, $limit = 5, $empieza_por, $estado, $palabra)
@@ -292,7 +288,6 @@ class Dashboard extends Connection{
     }
 
 
-    
 //Palabras en ingles.
 public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $palabra)
     {
@@ -757,14 +752,19 @@ public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $pa
   }
 
   // 7d. Actualizar (descripcion) termino en si existe y esta relaciona y dentro de la modal EN-ES
-  public function updateTerminoEnConIdEnEs($id_relacionado, $nom_es, $des_es)
+  public function updateTerminoEnConIdEnEs($id_relacionado, $nom_en, $des_en)
   {
     try {
 
-      $sql = "update terminos_es set nom_es = ?, des_es = ? where id =".$id_relacionado;
+      $sql = "update terminos_en set nom_en = ?, des_en = ? where id =".$id_relacionado;
+      //$sql = "update terminos_es set nom_es = ?, des_es = ? where id =".$id_relacionado;
       $query = $this->dbh->prepare($sql);
-      $query->bindValue(1, $nom_es);
-      $query->bindValue(2, $des_es);
+      /*
+      $sql_debug = str_replace(['?','?','?'],[$this->dbh->quote($nom_en),$this->dbh->quote($des_en),(int)$id_relacionado], $sql );
+      echo "<br><br>Consulta SQL: " . $sql_debug . "<br>";
+      */
+      $query->bindValue(1, $nom_en);
+      $query->bindValue(2, $des_en);
       $query->execute();
 
     }
@@ -1166,6 +1166,4 @@ public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $pa
         print "Error!: " . $e->getMessage();
     }
   }
-
-
 }

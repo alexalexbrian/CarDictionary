@@ -11,13 +11,6 @@ $palabra = !empty($_POST["palabra"]) ? $_POST["palabra"] : "";
 $offset = !empty($_GET["offset"]) && $_GET["offset"] !== "undefined" ? (int)$_GET["offset"] : $offset;
 $limit = !empty($_GET["limit"]) && $_GET["limit"] !== "undefined" ? (int)$_GET["limit"] : $limit;
 $users = $select->Get_posts_es($offset, $limit, $empieza_por, $estado, $palabra);
-
-
-
-
-
-
-
 ?>
 <div class="collapse" id="exCollapsingNavbar" style="padding: 0px">
     <!-- nuevo -->

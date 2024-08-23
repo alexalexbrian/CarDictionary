@@ -1,10 +1,11 @@
 <?php
 require_once("connection.php");
 class Login extends Connection {
+
     public function __construct() {
+
         parent::__construct();
     }
-
     public function Enter() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'] ?? '';

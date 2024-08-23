@@ -137,10 +137,10 @@
                   </div> -->
                   <?php
                   $terminosRelacionadosEnEs = $a->getTerminosRelacionadosEnEs($id);
-                  echo $id;
                   if(is_array($terminosRelacionadosEnEs) && !empty($terminosRelacionadosEnEs))
                   {
                     foreach($terminosRelacionadosEnEs as $terminoRelacionEnEs)
+               
                     {
                   ?>
                   <li class="media">

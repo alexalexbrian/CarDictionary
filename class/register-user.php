@@ -3,7 +3,6 @@ include_once("connection.php");
 
 class Register extends Connection{
 
-
     public function __contruct(){
 
         parent::__contruct();
@@ -59,15 +58,4 @@ class Register extends Connection{
             }
         }
     }
-    
-
-
-
-
-
-  
-
-    
-
-
 }

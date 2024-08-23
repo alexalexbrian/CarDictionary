@@ -3,7 +3,7 @@ require_once("class/dashboard-user.php");
 require_once("class/classTerminoManager.php");
 
 $id = isset($_GET["record"]) ? $_GET["record"] : '';
-$accion = isset($_POST["accion"]) ? $_POST["accion"]: '' ;
+echo $accion = isset($_POST["accion"]) ? $_POST["accion"]: '' ;
 
 $rownum = isset($_GET["record"]) ? $_GET["record"] : '';
 $num = isset($_GET["num"]) ? $_GET["num"] : '';
@@ -14,9 +14,14 @@ $palabra = isset($_GET["palabra"]) ? $_GET["palabra"] : '';
 $a = new Dashboard();
 $dat = $a->getTerminosEn($id);
 
+
+
 //Guardar los datos al editar
 $terminoManager = new TerminoManager();
 $terminoManager->handleAction($accion);
+
+
+
 
 //activar páginador
 if ($rownum > 0) {

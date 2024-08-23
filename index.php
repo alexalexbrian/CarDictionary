@@ -1,16 +1,19 @@
 
 <?php
 session_start();
-//redirija a index.php?id=1 cuando no se proporcione el parámetro id pero solo afecte a index.php
+/*
+redirige a index.php?id=1 cuando 
+no se proporciona el parámetro id, solo afecte a index.php.
+
+redirect to index.php?id=1 when id parameter is
+not provided, only affect index.php.
+*/
 if(basename($_SERVER['PHP_SELF']) == 'index.php' && !isset($_GET['id'])){
-
     header('Location:index.php?id=1');
-
-}else{
-    // Validar y sanitizar el parámetro id
-    $id = isset($_GET['id']) ? intval($_GET['id']) : 1; 
-    
 }
+//Validar y sanitizar el parámetro id.
+//Validate and sanitize the id parameter.
+$id = isset($_GET['id']) ? intval($_GET['id']) : 1; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +47,9 @@ switch ($id) {
 <?php 
 include_once("includes/footer.php");
 ?>
+<script>
+    window.jQuery || document.write('<script src="http://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"><\/script>')
+</script>
 <script src="js/summernoteSetup.js"></script>
 </body>
 </html>

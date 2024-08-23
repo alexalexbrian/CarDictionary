@@ -21,17 +21,13 @@ public function __construct()
     $this->datos = array();
 
     try {
-    //Establecer la conexión a la base de datos
 	$this->dbh=new PDO('mysql:host='.$this->server.';dbname='.$this->bdname.'',$this->user,$this->pass,
 	array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
     } catch (PDOException $e) {
-      // Manejar errores de conexión
         print "Error!: " . $e->getMessage();
         die();
 }
 
-
-    
 }
 
 public function Select_all_1($sql){
@@ -42,7 +38,6 @@ public function Select_all_1($sql){
 	while ($row=$smtp->fetch()){
 		
 		$this->datos[]=$row;
-		
 		
 		}
 		
