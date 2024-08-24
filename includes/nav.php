@@ -21,7 +21,7 @@
           <a href="#" class="nav-link" data-toggle="collapse" data-target="#exCollapsingNavbar">Buscar término</a>
         </li>
         <li class="nav-item">
-          <a href="new_es.php" class="nav-link">Nuevo término</a>
+          <a href="index.php?id=5" class="nav-link">Nuevo término</a>
         </li>
 
                 <li class="nav-item">

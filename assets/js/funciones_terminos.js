@@ -288,15 +288,10 @@ function eliminarTerminoEn(id_formulario, id_principal) {
  },
  function(isConfirm){
 
-   if (isConfirm){
-    swal("Eliminado", "el término ha sido borrado", "success");
-    // formulario.submit();
-    //  window.location = "./";
-    setTimeout(function () {
-      // window.location.href = "index.php";
-      formulario.submit();
-    }, 2000);
-
+   if (isConfirm){swal("Eliminado", "el término ha sido borrado", "success");
+      
+    formulario.submit();
+    
     } else {
       // swal("Cancelado", "el término sigue vivo", "error");
       swal({
@@ -542,7 +537,8 @@ function loadXMLDocRapido() {
   var xmlhttp;
 
   var n = document.getElementById('buscador_rapido').value;
-  // alert(n);
+  
+  //alert(n);
 
   if (n == '') {
     // document.getElementById("descripcion_termino_relacionado_en").value = "";

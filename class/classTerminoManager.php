@@ -1,4 +1,5 @@
 <?php
+require_once("class/dashboard-user.php");
 require_once("connection.php");
 class TerminoManager extends Dashboard
 {
@@ -53,6 +54,9 @@ class TerminoManager extends Dashboard
             case "actualizarTerminoRelacionadoDesdeModalEnEs":
                 $this->actualizarTerminoRelacionadoDesdeModalEnEs();
                 break;
+
+            case "agregarnuevapalabraaldiccionario":
+                $this->newword();
 
             default:
                 // Acción no reconocida
@@ -128,7 +132,6 @@ class TerminoManager extends Dashboard
         }
     }
 
-
     private function updateTerminoRelacionEnEs(){
 
         $id = $this->id;
@@ -155,7 +158,6 @@ class TerminoManager extends Dashboard
         $this->insertRelacionEnEs($id, $id_resultado);
         }
        
-
     }
 
     private function updateTerminoCompletoEn(){
@@ -183,12 +185,52 @@ class TerminoManager extends Dashboard
         $this->updateTerminoEnConIdEnEs($id_relacionado, $nombre_termino_relacionado_editar_enes, $descripcion_termino_relacionado_editar_enes);
     }
 
+    //agregar nuevas palabras
+    public function newword(){
+
+        $val=false;
+        $language = isset($_POST['language']) ? $_POST['language'] :'';
+        $nombre_termino_completo_en_crear = isset($_POST["nombre_termino_principal"]) ? $_POST["nombre_termino_principal"] : '';
+        $descripcion_termino_completo_en_crear = isset($_POST["descripcion_termino_principal"]) ? $_POST["descripcion_termino_principal"] : '';
+        $notas_termino_completo_en_crear = isset($_POST["notas_termino_principal"]) ? $_POST["notas_termino_principal"]:'';
+       
+        if(empty($language)){
+
+            $val=true;
+            echo '<div class="alert alert-danger">Selecciona un idioma.</div>';
+        }
+
+        if(empty($nombre_termino_completo_en_crear)){
+
+            echo '<div class="alert alert-danger">Escribe un termino</div>';
+        }
+
+        if(empty($descripcion_termino_completo_en_crear)){
+
+            echo '<div class="alert alert-danger">Escribe una descripción del termino</div>';
+        }
+
+        if($val != true){
+
+            if($language==100){
+            $id_resultado = $this->insertTerminoEs($nombre_termino_completo_en_crear, $descripcion_termino_completo_en_crear, $notas_termino_completo_en_crear, 'Alerta', 0); // no es vid, 0
+            header("Location:index.php?id=4&record=$id_resultado");
+             }
+
+            if($language==99){
+            $id_resultado = $this->insertTerminoEnEs($nombre_termino_completo_en_crear, $descripcion_termino_completo_en_crear, $notas_termino_completo_en_crear, 'Alerta', 0); // no es vid, 0
+            echo '<div class="alert alert-success">Se ha guardado correctamente (Inglés)</div>';
+            }
+
+        }
+    }
 
     // Ejemplo:
     private function borrarTerminoEn()
     {
         $id_principal = $_POST["id_principal"];
-        $this->conexion->deleteTerminoEn($id_principal);
-        echo '<script type="text/javascript">window.location.href = "index_es.php";</script>';
+        $this->deleteTerminoEn($id_principal);
+        header("Location:index.php?id=3");
+     
     }
 }

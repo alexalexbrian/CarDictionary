@@ -29,6 +29,9 @@ switch ($id) {
     case 4: 
         require_once("includes/templates/new-term-view.php");
         break;
+    case 5: 
+        require_once("includes/templates/new.php");
+        break;
     case 20:
         require_once("includes/templates/logout.php");
         break;

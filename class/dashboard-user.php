@@ -520,30 +520,6 @@ public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $pa
   }
 
   // 4. Función para crear término
-  public function insertTerminoEnEs($nom_en, $des_en, $not_en, $est_en, $vid_en)
-  {
-    {
-      try {
-
-        $sql = "INSERT into terminos_en (nom_en, des_en, not_en, est_en, vid_en)  VALUES (?, ?, ?, ?, ?)";
-        $query = $this->dbh->prepare($sql);
-        $query->bindValue(1,  $nom_en);
-        $query->bindValue(2,  $des_en);
-        $query->bindValue(3,  $not_en);
-        $query->bindValue(4,  $est_en);
-        // $query->bindValue(5, (int) $vid_en, PDO::PARAM_INT);
-        $query->bindValue(5, $vid_en);
-        $query->execute();
-        return $this->dbh->lastInsertId();
-
-      }
-      catch(PDOException $e)
-      {
-          print "Error!: " . $e->getMessage();
-      }
-    }
-  }
-
   // 4. Función para crear término relacionado en
   public function insertRelacionEn($id_termino, $id_relacionado)
   {
@@ -1126,6 +1102,32 @@ public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $pa
     }
   }
 
+
+  public function insertTerminoEnEs($nom_en, $des_en, $not_en, $est_en, $vid_en)
+  {
+    {
+      try {
+
+        $sql = "INSERT into terminos_en (nom_en, des_en, not_en, est_en, vid_en)  VALUES (?, ?, ?, ?, ?)";
+        $query = $this->dbh->prepare($sql);
+        $query->bindValue(1,  $nom_en);
+        $query->bindValue(2,  $des_en);
+        $query->bindValue(3,  $not_en);
+        $query->bindValue(4,  $est_en);
+        // $query->bindValue(5, (int) $vid_en, PDO::PARAM_INT);
+        $query->bindValue(5, $vid_en);
+        $query->execute();
+        return $this->dbh->lastInsertId();
+
+      }
+      catch(PDOException $e)
+      {
+          print "Error!: " . $e->getMessage();
+      }
+    }
+  }
+
+
   // 4b. Función para crear término relacionado ingles-español
   public function insertRelacionEnEs($id_termino_es, $id_termino_en)
   {
@@ -1146,6 +1148,10 @@ public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $pa
       }
     }
   }
+
+
+  
+
 
   // 4c. Borrado de relaciones en-es: borrado de relacion entre en y español
   public function deleteRelacionEnEs($id_termino_es, $id_termino_en)
