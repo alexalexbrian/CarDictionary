@@ -30,7 +30,7 @@ public function __construct()
 
 }
 
-public function Select_all_1($sql){
+public function Select_datos($sql){
 
 	$smtp=$this->dbh->prepare($sql);
 	$smtp->execute();
@@ -40,9 +40,7 @@ public function Select_all_1($sql){
 		$this->datos[]=$row;
 		
 		}
-		
 		return $this->datos;
-		
 	}
 
 public function Select_all_2(){

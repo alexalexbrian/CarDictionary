@@ -25,13 +25,13 @@
         </li>
 
                 <li class="nav-item">
-          <a href="export.php" class="nav-link">Imprimir</a>
+          <a href="index.php?id=6" class="nav-link">Imprimir</a>
         </li>
           
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Español - Inglés</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="./">Inglés - Español</a>
+          <a class="dropdown-item" href="./" onclick="alert('Este enlace está desactivado temporalmente.'); return false;">Inglés - Español</a>
           </div>
         </li>
         <li class="nav-item">

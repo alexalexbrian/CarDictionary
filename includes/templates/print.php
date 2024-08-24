@@ -1,74 +1,6 @@
-
-  <div class="collapse" id="exCollapsingNavbar" style="padding: 0px">
-    <!-- nuevo -->
-    <div class="container-fluid">
-      <div class="container p-t-md">
-        <ul class="media-list">
-          <li class="media" id="vista_termino">
-            <!-- <div class="media-body" style="border-right: 1px solid #edeef3; padding-right: 15px"> -->
-            <div class="media-body" style="padding-right: 15px">
-              <div class="container">
-                <div class="row">
-                  <!-- <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1"> -->
-                  <div class="col-lg-10 col-lg-offset-1 col-sm-12">
-                    <fieldset class="form-group" style="padding-top: 3px">
-                      <input type="text" class="form-control form-control-sm" placeholder="Escribir..." name="buscador_rapido" id="buscador_rapido" onkeyup="loadXMLDocRapido()" autocomplete="off">
-                      <div id="div_visualizador_rapido">
-                        <!-- # aquí iran apareciendo las búsquedas por ajax -->
-                      </div>
-                    </fieldset>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="media-right" style="padding: 0px;">
-              <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="#" data-toggle="collapse" data-target="#exCollapsingNavbar" class="btn btn-term btn-edit-principal"><i class="icon-cross"></i></a>
-              </div>
-            </div>
-          </li><!-- /.media -->
-        </ul>
-      </div>
-    </div>
-    <!-- /nuevo -->
-
-  </div>
-
-<script>
-  // Función para validar el formulario
-  function validarFormulario(event) {
-
-    //event.preventDefault();
-    var empiezaPor = document.getElementById('empieza_por');
-    var terminaCon = document.getElementById('termina_con');
-    var idioma = document.getElementById('idioma');
-    var palabra = document.getElementById('palabra').value;
-
-
-    // Validar que se haya seleccionado una letra para empieza_por
-    if (empiezaPor.value === '') {
-      alert('Por favor, elige una letra "Empieza por".');
-      empiezaPor.focus();
-      return false; // Detener el envío del formulario
-    }
-
-    // Validar que se haya seleccionado un idioma
-    if (idioma.value === '') {
-      alert('Por favor, elige un idioma.');
-      idioma.focus();
-      return false; // Detener el envío del formulario
-    }
-
-    if (empiezaPor.value === "0" && palabra.trim() === '') {
-      alert('Por favor, escribe una palabra');
-      return false; // Detener el envío del formulario
-    }
-
-    return true; // Permitir el envío del formulario si todas las validaciones pasan
-
-  }
-</script>
-
+<?php
+include_once("search-html.php");
+?>
 <div class="container p-t-md">
 
   <div class="row">
@@ -79,7 +11,7 @@
       <p class="termino-principal-tit termino-tit initialism">Buscador para imprimir</p>
 
 
-      <form action="procesar_words.php" name="busqueda" id="busqueda" method="post" onsubmit="return validarFormulario(event)">
+      <form action="procesar_words.php" name="busqueda" id="busqueda" method="post" onsubmit="return ValidarFiltrosWord(event)">
 
         <input type="hidden" id='reseteo' name='reseteo' value='si'>
         <!-- insertamos variable oculta para la busqueda por filtros -->

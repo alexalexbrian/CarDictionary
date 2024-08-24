@@ -5,6 +5,7 @@ $accion = isset($_POST["accion"]) ? $_POST["accion"] : '';
 //Guardar los datos al editar
 $terminoManager = new TerminoManager();
 $terminoManager->handleAction($accion);
+include_once("search-html.php");
 ?>
 <div class="container-fluid bg-white">
   <div class="container" style="padding-bottom: 5px">

@@ -32,6 +32,9 @@ switch ($id) {
     case 5: 
         require_once("includes/templates/new.php");
         break;
+    case 6: 
+        require_once("includes/templates/export.php");
+        break;
     case 20:
         require_once("includes/templates/logout.php");
         break;
@@ -50,6 +53,9 @@ switch ($id) {
 <?php 
 include_once("includes/footer.php");
 ?>
+<!-- filtros descargar-word  -->
+<script src="js/filtros-descargar-word.js"></script>
+<!-- Fin filtros descargar-word  -->
 <script>
     window.jQuery || document.write('<script src="http://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"><\/script>')
 </script>

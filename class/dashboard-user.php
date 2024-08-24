@@ -877,8 +877,12 @@ public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $pa
 
       $sql = "select * from terminos_es where nom_es LIKE ?";
       $query = $this->dbh->prepare($sql);
-      // $query->bindValue(1, $nom_en.'%');
+      /*
+      $sql_debug = str_replace(['?'],[$this->dbh->quote($nom_en)],$sql);
+      echo "<br><br> Consulta SQL: ".$sql_debug."<br>";
+      */
       $query->bindValue(1, '%'.$nom_en.'%');
+       // $query->bindValue(1, $nom_en.'%');
       $query->execute();
       //si es true
       if($query->rowCount() > 0)
@@ -1158,7 +1162,6 @@ public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $pa
   {
     try {
 
-      // $sql = "DELETE from relaciones_en_en WHERE id=? AND id_relacionado=?";
       $sql = "DELETE from relaciones_en_es WHERE id_en=? AND id_es=?";
       $query = $this->dbh->prepare($sql);
       $query->bindValue(1, (int) $id_termino_en, PDO::PARAM_INT);
@@ -1172,4 +1175,24 @@ public function Get_posts_en($offset = 0, $limit = 5, $empieza_por, $estado, $pa
         print "Error!: " . $e->getMessage();
     }
   }
+
+  public function ContadorRegistros(){
+    try {
+        $sql = "SELECT COUNT(*) FROM `terminos_es`";
+        $query = $this->dbh->prepare($sql);
+        $query->execute();
+        
+        // Resultado de la consulta
+        $count = $query->fetchColumn();
+
+        return $count; //número de registros
+    } 
+    catch (PDOException $e) {
+        print "Error!: " . $e->getMessage();
+        return false; // En caso de error, devolver false
+    }
 }
+
+
+
+  }
