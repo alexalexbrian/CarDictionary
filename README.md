@@ -52,10 +52,10 @@ Ten en cuenta que la aplicación tiene una seguridad básica para los datos. Est
 ## Capturas de Pantalla
 
 ### Pantalla Principal
-![Pantalla Principal](images/pantalla_principal.png)
+![Pantalla Principal](pantalla_principal.png)
 
 ### Ejemplo de Configuración
-![Ejemplo de Configuración](images/configuracion.png)
+![Ejemplo de Configuración](configuracion.png)
 
 ## Créditos
 
