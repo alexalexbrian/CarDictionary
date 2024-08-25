@@ -41,13 +41,15 @@ Los archivos del directorio `vendor` están incluidos al descargar el proyecto.
 
 La configuración de la base de datos se realiza en el archivo `connection.php`, donde debes ingresar tu usuario y contraseña.
 
-Se proporciona una base de datos precargada para el funcionamiento de la aplicación web.
+Se proporciona una base de datos dictionary1.sql precargada para el funcionamiento de la aplicación web.
+
+**USUARIO:** admin
+
+**PASSWORD:** Aa1234
 
 ### Seguridad de los Datos
 
 Ten en cuenta que la aplicación tiene una seguridad básica para los datos. Está diseñada para su uso en entornos internos donde no haya exposición a la red. Se recomienda mejorar la seguridad si se va a utilizar en un entorno más accesible.
-
-
 
 ## Capturas de Pantalla
 

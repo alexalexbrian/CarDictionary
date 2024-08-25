@@ -15,7 +15,7 @@ public function __construct()
     $this->user="root";
 	$this->password="";
     $this->server="localhost";
-    $this->bdname="diccionario_veterinario2";
+    $this->bdname="dictionary1";
 	$this->date = date("d-m-Y");
 	$this->time = date("H:m:s");
     $this->data = array();

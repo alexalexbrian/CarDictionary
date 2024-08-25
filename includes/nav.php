@@ -15,6 +15,7 @@
           </form>
         </li> -->
 
+
         <li class="nav-item">
           <!-- <a href="#" class="nav-link">Buscar término</a> -->
 
@@ -34,9 +35,23 @@
           <a class="dropdown-item" href="./" onclick="alert('Este enlace está desactivado temporalmente.'); return false;">Inglés - Español</a>
           </div>
         </li>
-        <li class="nav-item">
+
+        <?php
+          if (!isset($_SESSION['username'])) { // Verifica si la sesión 'user' está definida
+            echo '<li class="nav-item">
+                      <a href="index.php?id=1" class="nav-link">Login</a>
+                  </li>';
+          }
+        ?>
+
+       <?php
+          if (isset($_SESSION['username'])) { // Verifica si la sesión 'user' está definida
+            echo '<li class="nav-item">
           <a href="index.php?id=20" class="nav-link">Salir <i class="fa fa-sign-out"></i></a>
-        </li>
+        </li>';
+          }
+        ?>
+
       </ul>
     </div><!-- /.container -->
   </nav>

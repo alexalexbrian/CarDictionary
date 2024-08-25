@@ -16,11 +16,18 @@ $id = strip_tags($_GET['id']);
           <label class="sr-only" for="exampleInputPassword3">Contraseña</label>
           <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
         </div>
-         <div class="checkbox">
-          <label>
-            <input type="checkbox"> Recordar</label>
+        
+        <div class="checkbox">
+        <a href="index.php?id=2"  class="btn-link">Registrar usuario</a>
         </div>
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Recordar</label>   
+        </div>
+
         <button type="submit" class="btn btn-block btn-primary">Entrar</button>
+
       </form>
     </div>
   </div>

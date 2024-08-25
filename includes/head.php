@@ -25,24 +25,11 @@
   <!-- Include feather.css in your document -->
   <link rel="stylesheet" href="assets/fonts/feather-webfont/feather.css">
 
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->
-
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+  <!-- Bootstrap core JavaScript-->
   <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/funciones_terminos.js"></script>
-  <!-- include summernote css/js-->
+
   <link href="assets/lib/summernote/summernote.css" rel="stylesheet">
   <!-- <script src="assets/lib/summernote/summernote.min.js"></script> -->
-  <script src="assets/lib/summernote/summernote.min.js"></script>
-  <!-- sweetalert2 -->
-  <script src="assets/lib/sweetalert2/dist/sweetalert2.min.js"></script>
-   <!-- Buscador web -->
-  <script src="js/web-browser.js"></script>
-   <!-- Fin Buscador web -->
   <link rel="stylesheet" type="text/css" href="assets/lib/sweetalert2/dist/sweetalert2.css">
 </head>

@@ -41,7 +41,9 @@ switch ($id) {
 }
 ?>
 <?php
-} else { echo '<div class="alert alert-danger">No se ha iniciado sesión.</div>'; }
+} else { 
+echo '<div class="alert alert-danger">No se ha iniciado sesión.</div>'; 
+
 switch ($id) {
     case 1:
         require_once("includes/templates/login.php");
@@ -49,16 +51,29 @@ switch ($id) {
     case 2: 
         require_once("includes/templates/user-registration.php");
         break;
-}?>
+}
+}
+?>
 <?php 
 include_once("includes/footer.php");
 ?>
+<script src="assets/js/funciones_terminos.js"></script>
+
+<script src="assets/lib/summernote/summernote.min.js"></script>
+<!-- sweetalert2 -->
+<script src="assets/lib/sweetalert2/dist/sweetalert2.min.js"></script>
+
+<!-- Buscador web -->
+<script src="js/web-browser.js"></script>
+<!-- Fin Buscador web -->
+
 <!-- filtros descargar-word  -->
 <script src="js/filtros-descargar-word.js"></script>
 <!-- Fin filtros descargar-word  -->
 <script>
     window.jQuery || document.write('<script src="http://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"><\/script>')
 </script>
+<!-- include summernote /js-->
 <script src="js/summernoteSetup.js"></script>
 </body>
 </html>
