@@ -1,6 +1,6 @@
 # CarDictionary
 
-**CarDictionary** es un diccionario de palabras personalizado, diseñado para facilitar la creación y gestión de términos específicos en diversos campos. Este proyecto fue desarrollado a solicitud de un cliente y es ideal para organizar vocabularios en diferentes ámbitos, como el taller, la medicina, la programación, entre otros.
+**CarDictionary** aplicación para crear diccionario de palabras personalizado, diseñado para facilitar la creación y gestión de términos específicos en diversos campos. Este proyecto fue desarrollado a solicitud de un cliente y es ideal para organizar vocabularios en diferentes ámbitos, como el taller, la medicina, la programación, entre otros.
 
 **Año de Desarrollo:** 2020
 
