@@ -69,7 +69,7 @@ class Word{
         // Conexión a la base de datos
         $select = new Connection();
         // Obtener datos de la base de datos
-        $dat = $select->Select_datos($sql);
+        $dat = $select->Select_data($sql);
         if (!empty($dat)) {
             // Recorrer los datos y agregarlos al documento
             for($li=0;$li<sizeof($dat);$li++){

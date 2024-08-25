@@ -2,26 +2,26 @@
 class Connection{
     
     private $user;
-    private $pass;
+    private $password;
     protected $dbh;
-    private $datos;
-	protected $fecha;
-	protected $hora;
+    private $data;
+	protected $date;
+	protected $time;
     protected $server;
     protected $bdname;
 
 public function __construct()
 {   
     $this->user="root";
-	$this->pass="";
+	$this->password="";
     $this->server="localhost";
     $this->bdname="diccionario_veterinario2";
-	$this->fecha = date("d-m-Y");
-	$this->hora = date("H:m:s");
-    $this->datos = array();
+	$this->date = date("d-m-Y");
+	$this->time = date("H:m:s");
+    $this->data = array();
 
     try {
-	$this->dbh=new PDO('mysql:host='.$this->server.';dbname='.$this->bdname.'',$this->user,$this->pass,
+	$this->dbh=new PDO('mysql:host='.$this->server.';dbname='.$this->bdname.'',$this->user,$this->password,
 	array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage();
@@ -30,17 +30,17 @@ public function __construct()
 
 }
 
-public function Select_datos($sql){
+public function Select_data($sql){
 
 	$smtp=$this->dbh->prepare($sql);
 	$smtp->execute();
 
 	while ($row=$smtp->fetch()){
 		
-		$this->datos[]=$row;
+		$this->data[]=$row;
 		
 		}
-		return $this->datos;
+		return $this->data;
 	}
 
 public function Select_all_2(){
